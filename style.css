@@ -1,0 +1,663 @@
+/* ============================================================================
+   STYLE.CSS - មេរៀន Database (MySQL & SQL Language ពីមូលដ្ឋានដល់ Advance)
+   Theme: Deep React Blue Interior + MySQL Logo Cover (Blue & Orange)
+   រៀបរៀង និងចងក្រងដោយ៖ លាត ប្រុស
+   ============================================================================ */
+
+:root {
+    --primary: #0066B2;        /* Deep Vibrant React Blue */
+    --primary-dark: #004C8C;   /* Deeper Blue */
+    --primary-light: #E6F4FF;  /* Crisp Light Blue */
+    --mysql-blue: #00758F;     /* Official MySQL Blue */
+    --mysql-orange: #F29111;   /* Official MySQL Orange */
+    --text-main: #0F172A;
+    --text-muted: #475569;
+    --border-color: #CBD5E1;
+    --code-bg: #F8FAFC;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #334155;
+    font-family: 'Kantumruy Pro', 'Plus Jakarta Sans', sans-serif;
+    color: var(--text-main);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+}
+
+/* ទំហំទំព័រ A4 */
+.page {
+    width: 210mm;
+    height: 297mm;
+    background: #FFFFFF;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* ============================================================================
+   1. COVER PAGE (ក្របមុខ MODERN ពណ៌តាម LOGO MYSQL & SQL)
+   ============================================================================ */
+.cover-page {
+    background: radial-gradient(circle at 85% 15%, #004E64 0%, #071A26 60%, #040E17 100%);
+    color: #FFFFFF;
+    padding: 20mm 19mm;
+    justify-content: space-between;
+}
+
+.cover-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(to right, rgba(56, 189, 248, 0.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(56, 189, 248, 0.06) 1px, transparent 1px);
+    background-size: 32px 32px;
+    pointer-events: none;
+}
+
+.glow-orb-1 {
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 340px;
+    height: 340px;
+    background: radial-gradient(circle, rgba(0, 117, 143, 0.45) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.glow-orb-2 {
+    position: absolute;
+    bottom: 30px;
+    left: -80px;
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, rgba(242, 145, 17, 0.28) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.cover-top {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.edition-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0, 117, 143, 0.28);
+    border: 1px solid rgba(56, 189, 248, 0.45);
+    color: #7DD3FC;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.80rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.level-tag {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.80rem;
+    font-weight: 700;
+    color: var(--mysql-orange);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.cover-hero {
+    position: relative;
+    z-index: 2;
+    margin-top: 6mm;
+}
+
+.cover-kicker {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: var(--mysql-orange);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.cover-title {
+    font-size: 2.65rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, #FFFFFF 0%, #BAE6FD 65%, #38BDF8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cover-subtitle {
+    font-size: 1.02rem;
+    color: #CBD5E1;
+    line-height: 1.68;
+    max-width: 95%;
+    border-left: 4px solid var(--mysql-orange);
+    padding-left: 14px;
+}
+
+.cover-visual-box {
+    position: relative;
+    z-index: 2;
+    margin: 8mm 0;
+    background: rgba(7, 26, 38, 0.68);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(56, 189, 248, 0.28);
+    border-radius: 18px;
+    padding: 18px 22px;
+    display: grid;
+    grid-template-columns: 144px 1fr;
+    gap: 20px;
+    align-items: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.42);
+}
+
+.sql-preview-card {
+    background: #06131E;
+    border: 1px solid rgba(242, 145, 17, 0.28);
+    border-radius: 12px;
+    padding: 13px 15px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.76rem;
+    line-height: 1.62;
+    color: #E2E8F0;
+    font-variant-ligatures: none;
+}
+
+.sql-preview-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 9px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+}
+
+.dot { width: 9px; height: 9px; border-radius: 50%; }
+.dot-r { background: #EF4444; }
+.dot-y { background: #F29111; }
+.dot-g { background: #10B981; }
+
+.cover-topics {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 11px;
+}
+
+.topic-pill {
+    background: rgba(6, 19, 30, 0.78);
+    border: 1px solid rgba(56, 189, 248, 0.22);
+    border-radius: 10px;
+    padding: 10px 12px;
+}
+
+.topic-pill span {
+    display: block;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.71rem;
+    font-weight: 700;
+    color: var(--mysql-orange);
+    margin-bottom: 3px;
+}
+
+.topic-pill p {
+    font-size: 0.80rem;
+    color: #F1F5F9;
+    font-weight: 500;
+    line-height: 1.42;
+}
+
+.cover-footer {
+    position: relative;
+    z-index: 2;
+    border-top: 1px solid rgba(148, 163, 184, 0.25);
+    padding-top: 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.author-box p {
+    font-size: 0.78rem;
+    color: #94A3B8;
+}
+
+.author-box h3 {
+    font-size: 1.06rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-top: 2px;
+}
+
+.tg-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #229ED9 0%, #0066B2 100%);
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    box-shadow: 0 6px 16px rgba(0, 102, 178, 0.38);
+}
+
+/* ============================================================================
+   2. CONTENT PAGES (ពណ៌ខៀវដិតឆ្អក់ និងគម្លាតជួរស្រឡះដូចសៀវភៅ REACT)
+   ============================================================================ */
+.page-body {
+    padding: 13mm 16mm 7mm 16mm;
+    flex: 1;
+}
+
+.page-top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1.5px solid #CBD5E1;
+    padding-bottom: 5px;
+    margin-bottom: 11px;
+    font-size: 0.76rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.page-top-header a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+/* ចំណងជើងជំពូក (ពណ៌ខៀវដិតដូចសៀវភៅ React) */
+.ch-title {
+    background: linear-gradient(90deg, #D0EBFF 0%, #E7F5FF 65%, #F8FAFC 100%);
+    color: #0F172A;
+    font-size: 1.05rem;
+    font-weight: 700;
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+    border-left: 5px solid var(--primary);
+    margin-bottom: 11px;
+}
+
+/* ចំណងជើងរងពណ៌ខៀវដិតឆ្អក់ */
+.step-heading {
+    font-size: 0.87rem;
+    font-weight: 700;
+    color: var(--primary);
+    /* margin: 9px 0 4px 0; */
+    margin: 16px 0 6px 0;
+}
+
+/* អត្ថបទ និងបញ្ជី — គម្លាតជួរស្រឡះដូច React */
+.step-text {
+    font-size: 0.82rem;
+    line-height: 1.68;
+    color: var(--text-main);
+    margin-bottom: 6px;
+}
+
+.step-list {
+    margin-left: 20px;
+    font-size: 0.81rem;
+    line-height: 1.66;
+    margin-bottom: 7px;
+}
+
+.step-list li {
+    margin-bottom: 4px;
+}
+
+.step-list ul {
+    list-style-type: disc;
+    margin: 3px 0 3px 18px;
+}
+
+/* Inline Code (ពណ៌ខៀវដិតដូច React) */
+code.ic {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.75rem;
+    background: #EBF5FF;
+    color: #0066B2;
+    border: 1px solid #93C5FD;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-variant-ligatures: none;
+}
+
+/* ប្រអប់ទម្រង់ទូទៅ (Syntax Box) — មុនចូលឧទាហរណ៍កូដ */
+.syntax-box {
+    background: #F0F7FF;
+    border: 1px solid #93C5FD;
+    border-left: 4px solid var(--primary-dark);
+    border-radius: 6px;
+    padding: 6px 12px;
+    margin: 4px 0 7px 0;
+}
+
+.syntax-box pre {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.74rem;
+    line-height: 1.52;
+    color: #004C8C;
+    font-weight: 500;
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-variant-ligatures: none;
+}
+
+/* ប្រអប់ឧទាហរណ៍កូដ (Example Code Box) */
+.code-box {
+    background: var(--code-bg);
+    border: 1px solid #CBD5E1;
+    border-left: 4px solid var(--primary);
+    border-radius: 6px;
+    padding: 7px 12px;
+    margin: 4px 0 7px 0;
+}
+
+.code-box pre {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.73rem;
+    line-height: 1.48;
+    color: #1E293B;
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-variant-ligatures: none;
+}
+
+/* SQL Syntax Highlighting */
+.s-kw { color: #0066B2; font-weight: 600; }   /* SELECT, CREATE, WHERE */
+.s-fn { color: #7C3AED; font-weight: 500; }   /* COUNT, SUM, NOW */
+.s-str { color: #059669; }                    /* 'String' */
+.s-num { color: #D97706; }                    /* 123 */
+.s-com { color: #64748B; font-style: italic; }/* -- Comment */
+
+/* Note Box */
+.note-box {
+    background: #FFFBEB;
+    border: 1px solid #FCD34D;
+    border-left: 4px solid var(--mysql-orange);
+    border-radius: 6px;
+    padding: 6px 11px;
+    font-size: 0.78rem;
+   line-height: 1.85;        /* 👈 កែត្រង់នេះឱ្យជួរអក្សរឃ្លាតពីគ្នា */
+    margin: 8px 0 12px 0;     /* 👈 លេខ 12px សម្រាប់គម្លាតពីប្រអប់ខាងក្រោម */
+    color: #78350F;
+}
+
+/* Summary Box */
+.summary-box {
+    background: var(--primary-light);
+    border: 1px solid #93C5FD;
+    border-left: 4px solid var(--primary);
+    border-radius: 6px;
+    padding: 7px 12px;
+    font-size: 0.79rem;
+    line-height: 1.85;
+    margin-top: 6px;
+    color: var(--text-main);
+}
+
+/* Table of Contents Styling */
+.toc-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 6px;
+}
+
+.toc-part {
+    font-size: 0.83rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    background: var(--primary-light);
+    border-left: 4px solid var(--primary);
+    padding: 5px 10px;
+    border-radius: 0 4px 4px 0;
+    margin-top: 6px;
+}
+
+.toc-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 0.82rem;
+    padding: 3.5px 8px;
+    border-bottom: 1px dashed #CBD5E1;
+}
+
+.toc-row a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 500;
+}
+
+.toc-row a:hover {
+    color: var(--primary);
+}
+
+.toc-row span.pg {
+    font-weight: 700;
+    color: var(--primary);
+    white-space: nowrap;
+    margin-left: 10px;
+}
+
+/* Data Table */
+.db-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.76rem;
+    margin: 5px 0 8px 0;
+}
+
+.db-table th {
+    background: var(--primary);
+    color: #FFFFFF;
+    text-align: left;
+    padding: 5px 9px;
+    font-weight: 600;
+}
+
+.db-table td {
+    border: 1px solid #CBD5E1;
+    padding: 4.5px 9px;
+    line-height: 1.48;
+}
+
+.db-table tr:nth-child(even) {
+    background: #F8FAFC;
+}
+
+/* Two-Column Mini Grid */
+.two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+    margin: 5px 0;
+}
+
+.mini-card {
+    background: #F8FAFC;
+    border: 1px solid #93C5FD;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 0.78rem;
+    line-height: 1.48;
+}
+
+.mini-card h4 {
+    font-size: 0.80rem;
+    color: var(--primary-dark);
+    margin-bottom: 2px;
+}
+
+/* ============================================================================
+   3. BACK COVER / CLOSING PAGE (ទំព័រចុងបញ្ចប់សៀវភៅ)
+   ============================================================================ */
+.back-cover {
+    background: radial-gradient(circle at 20% 80%, #004E64 0%, #071A26 60%, #040E17 100%);
+    color: #FFFFFF;
+    padding: 26mm 22mm;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.closing-card {
+    position: relative;
+    z-index: 2;
+    background: rgba(7, 26, 38, 0.72);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: 20px;
+    padding: 36px 32px;
+    max-width: 155mm;
+    width: 100%;
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45);
+}
+
+.closing-badge {
+    display: inline-block;
+    background: rgba(242, 145, 17, 0.18);
+    border: 1px solid rgba(242, 145, 17, 0.5);
+    color: #FBBF24;
+    padding: 5px 16px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+}
+
+.closing-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+    background: linear-gradient(135deg, #FFFFFF 0%, #BAE6FD 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.closing-text {
+    font-size: 0.94rem;
+    color: #CBD5E1;
+    line-height: 1.8;
+    margin-bottom: 24px;
+}
+
+.contact-box {
+    background: rgba(6, 19, 30, 0.85);
+    border: 1px solid rgba(56, 189, 248, 0.28);
+    border-radius: 14px;
+    padding: 18px 20px;
+    margin-bottom: 22px;
+}
+
+.contact-box h4 {
+    font-size: 0.92rem;
+    color: #7DD3FC;
+    margin-bottom: 8px;
+}
+
+.contact-box p {
+    font-size: 0.83rem;
+    color: #94A3B8;
+    margin-bottom: 14px;
+    line-height: 1.6;
+}
+
+.tg-btn-lg {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #229ED9 0%, #0066B2 100%);
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 10px 24px;
+    border-radius: 999px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 102, 178, 0.42);
+}
+
+.closing-author {
+    border-top: 1px solid rgba(148, 163, 184, 0.25);
+    padding-top: 16px;
+    font-size: 0.88rem;
+    color: #E2E8F0;
+}
+
+/* Footer */
+.page-foot {
+    padding: 6px 16mm 10mm 16mm;
+    border-top: 1px solid #CBD5E1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.76rem;
+    color: var(--text-muted);
+}
+
+.author-credit {
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.page-num {
+    background: var(--primary-light);
+    border: 1px solid #93C5FD;
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-weight: 700;
+    color: var(--primary-dark);
+}
+
+/* Print Configuration */
+@page {
+    size: A4 portrait;
+    margin: 0;
+}
+
+@media print {
+    body {
+        background: none;
+        padding: 0;
+    }
+    .page {
+        margin: 0;
+        box-shadow: none;
+        page-break-after: always;
+    }
+}

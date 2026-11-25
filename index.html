@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="km">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>មេរៀន Database (MySQL & SQL Language ពីមូលដ្ឋានដល់ Advance)</title>
+    <!-- Google Fonts: Kantumruy Pro (Khmer), Plus Jakarta Sans (English), Fira Code (Code) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Kantumruy+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ====================================================================
+         ទំព័រទី ១: ក្របមុខ (MODERN MYSQL & SQL COVER)
+         ==================================================================== -->
+    <section class="page cover-page">
+        <div class="cover-grid"></div>
+        <div class="glow-orb-1"></div>
+        <div class="glow-orb-2"></div>
+
+        <div class="cover-top">
+            <div class="edition-badge">
+                <span>⚡</span>
+                <span>MYSQL 8.0+ &amp; SQL • 2026 EDITION</span>
+            </div>
+            <div class="level-tag">Beginner to Advanced</div>
+        </div>
+
+        <div class="cover-hero">
+            <div class="cover-kicker">Relational Database Management System</div>
+            <h1 class="cover-title">មេរៀន Database<br>MySQL &amp; SQL Language</h1>
+            <p class="cover-subtitle">
+                សិក្សាពីមូលដ្ឋានគ្រឹះនៃការរចនាទិន្នន័យ (Database Design) ការសរសេរឃ្លាបញ្ជា SQL រហូតដល់កម្រិតខ្ពស់
+                (Joins, Subqueries, CTE, Indexing, Views, Procedures &amp; ACID Transactions)
+                សម្រាប់ការអភិវឌ្ឍប្រព័ន្ធពិតប្រាកដ។
+            </p>
+        </div>
+
+        <div class="cover-visual-box">
+            <svg width="140" height="140" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M25 110V128C25 139.046 49.6243 148 80 148C110.376 148 135 139.046 135 128V110" fill="#00546B"
+                    stroke="#38BDF8" stroke-width="2.5" />
+                <ellipse cx="80" cy="110" rx="55" ry="18" fill="#00758F" stroke="#7DD3FC" stroke-width="2" />
+                <circle cx="45" cy="127" r="3.5" fill="#F29111" />
+                <circle cx="57" cy="130" r="3.5" fill="#38BDF8" />
+
+                <path d="M25 72V90C25 101.046 49.6243 110 80 110C110.376 110 135 101.046 135 90V72" fill="#00758F"
+                    stroke="#38BDF8" stroke-width="2.5" />
+                <ellipse cx="80" cy="72" rx="55" ry="18" fill="#0066B2" stroke="#BAE6FD" stroke-width="2" />
+                <circle cx="45" cy="89" r="3.5" fill="#F29111" />
+                <circle cx="57" cy="92" r="3.5" fill="#38BDF8" />
+
+                <path d="M25 34V52C25 63.0457 49.6243 72 80 72C110.376 72 135 63.0457 135 52V34" fill="#0066B2"
+                    stroke="#7DD3FC" stroke-width="2.5" />
+                <ellipse cx="80" cy="34" rx="55" ry="18" fill="#F29111" stroke="#FDE68A" stroke-width="2.5" />
+                <ellipse cx="80" cy="34" rx="34" ry="9" stroke="#FFFFFF" stroke-width="1.5" stroke-dasharray="4 4" />
+                <circle cx="45" cy="51" r="3.5" fill="#F29111" />
+                <circle cx="57" cy="54" r="3.5" fill="#34D399" />
+            </svg>
+
+            <div class="sql-preview-card">
+                <div class="sql-preview-header">
+                    <span class="dot dot-r"></span>
+                    <span class="dot dot-y"></span>
+                    <span class="dot dot-g"></span>
+                    <span style="color:#94A3B8; font-size:0.7rem; margin-left:6px;">mysql_analytics.sql</span>
+                </div>
+                <div>
+                    <span style="color:#38BDF8; font-weight:600;">SELECT</span> u.full_name, <span
+                        style="color:#C084FC;">COUNT</span>(o.id) <span
+                        style="color:#38BDF8; font-weight:600;">AS</span> total_orders<br>
+                    <span style="color:#38BDF8; font-weight:600;">FROM</span> users u<br>
+                    <span style="color:#38BDF8; font-weight:600;">INNER JOIN</span> orders o <span
+                        style="color:#38BDF8; font-weight:600;">ON</span> u.id = o.user_id<br>
+                    <span style="color:#38BDF8; font-weight:600;">WHERE</span> o.status = <span
+                        style="color:#34D399;">'COMPLETED'</span><br>
+                    <span style="color:#38BDF8; font-weight:600;">GROUP BY</span> u.id <span
+                        style="color:#38BDF8; font-weight:600;">ORDER BY</span> total_orders <span
+                        style="color:#F29111;">DESC</span>;
+                </div>
+            </div>
+        </div>
+
+        <div class="cover-topics">
+            <div class="topic-pill">
+                <span>PART 01 • FOUNDATION</span>
+                <p>RDBMS, Data Types, Constraints &amp; DDL</p>
+            </div>
+            <div class="topic-pill">
+                <span>PART 02 • CORE SQL</span>
+                <p>CRUD, Filtering, Sorting &amp; Aggregation</p>
+            </div>
+            <div class="topic-pill">
+                <span>PART 03 • ADVANCE</span>
+                <p>Joins, Subqueries, CTE, Views, Indexes &amp; ACID</p>
+            </div>
+        </div>
+
+        <div class="cover-footer">
+            <div class="author-box">
+                <p>រៀបរៀង និងចងក្រងដោយ៖</p>
+                <h3>លាត ប្រុស</h3>
+            </div>
+            <a class="tg-btn" href="https://t.me/leatbros0979445608" target="_blank">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
+                </svg>
+                <span>ទំនាក់ទំនងមកកាន់ខ្ញុំ</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- ====================================================================
+         ទំព័រទី ២: មាតិកា (TABLE OF CONTENTS)
+         ==================================================================== -->
+    <section class="page" id="toc">
+        <div class="page-body">
+            <header class="page-top-header">
+                <span>Database (MySQL &amp; SQL Language)</span>
+                <span>Table of Contents</span>
+            </header>
+
+            <h2 class="ch-title">មាតិកាមេរៀន (Table of Contents)</h2>
+
+            <div class="toc-grid">
+                <div class="toc-part">ផ្នែកទី ១៖ មូលដ្ឋានគ្រឹះ Database និងរចនាសម្ព័ន្ធ (Foundation)</div>
+                <div class="toc-row"><a href="#ch1">ជំពូកទី ០១៖ ស្វែងយល់អំពី Database, RDBMS និង MySQL</a><span
+                        class="pg">ទំព័រ 3</span></div>
+                <div class="toc-row"><a href="#ch2">ជំពូកទី ០២៖ ប្រភេទទិន្នន័យ (MySQL Data Types) និង
+                        Constraints</a><span class="pg">ទំព័រ 4</span></div>
+                <div class="toc-row"><a href="#ch3">ជំពូកទី ០៣៖ ការបង្កើត និងគ្រប់គ្រង Database &amp; Tables
+                        (DDL)</a><span class="pg">ទំព័រ 5</span></div>
+
+                <div class="toc-part">ផ្នែកទី ២៖ ការគ្រប់គ្រង និងទាញយកទិន្នន័យ (Core SQL &amp; DML/DQL)</div>
+                <div class="toc-row"><a href="#ch4">ជំពូកទី ០៤៖ ការបញ្ចូល កែប្រែ និងលុបទិន្នន័យ (INSERT, UPDATE,
+                        DELETE)</a><span class="pg">ទំព័រ 6</span></div>
+                <div class="toc-row"><a href="#ch5">ជំពូកទី ០៥៖ ការទាញយក និងច្រោះទិន្នន័យ (SELECT, WHERE, LIKE,
+                        IN)</a><span class="pg">ទំព័រ 7</span></div>
+                <div class="toc-row"><a href="#ch6">ជំពូកទី ០៦៖ ការតម្រៀប និងកំណត់ចំនួនទិន្នន័យ (ORDER BY, LIMIT,
+                        DISTINCT)</a><span class="pg">ទំព័រ 8</span></div>
+                <div class="toc-row"><a href="#ch7">ជំពូកទី ០៧៖ អនុគមន៍គណនា និងការផ្តុំទិន្នន័យ (COUNT, SUM, GROUP BY,
+                        HAVING)</a><span class="pg">ទំព័រ 9</span></div>
+
+                <div class="toc-part">ផ្នែកទី ៣៖ ទំនាក់ទំនងតារាង និងកម្រិតខ្ពស់ (Relational &amp; Advance SQL)</div>
+                <div class="toc-row"><a href="#ch8">ជំពូកទី ០៨៖ ទំនាក់ទំនងរវាងតារាង (Primary Key, Foreign Key &amp;
+                        Relationships)</a><span class="pg">ទំព័រ 10</span></div>
+                <div class="toc-row"><a href="#ch9">ជំពូកទី ០៩៖ ការភ្ជាប់តារាងចូលគ្នា (INNER, LEFT, RIGHT &amp; CROSS
+                        JOIN)</a><span class="pg">ទំព័រ 11</span></div>
+                <div class="toc-row"><a href="#ch10">ជំពូកទី ១០៖ Subqueries និង Common Table Expressions (CTE)</a><span
+                        class="pg">ទំព័រ 12</span></div>
+                <div class="toc-row"><a href="#ch11">ជំពូកទី ១១៖ ការបង្កើត Views និងការបង្កើនល្បឿនទិន្នន័យដោយ
+                        Indexes</a><span class="pg">ទំព័រ 13</span></div>
+                <div class="toc-row"><a href="#ch12">ជំពូកទី ១២៖ Stored Procedures, Triggers និង Transactions
+                        (ACID)</a><span class="pg">ទំព័រ 14</span></div>
+            </div>
+
+            <div class="summary-box" style="margin-top: 16px;">
+                <strong>របៀបអនុវត្តមេរៀន៖</strong> ដើម្បីចេះ Database និង SQL ឱ្យបានស៊ីជម្រៅ សូមដំឡើង <strong>XAMPP
+                    (phpMyAdmin)</strong> ឬ <strong>MySQL Workbench</strong> ហើយអនុវត្តសរសេរកូដតាម
+                <strong>Syntax</strong> និង <strong>Example</strong> នីមួយៗដោយផ្ទាល់ដៃ។
+            </div>
+        </div>
+
+        <footer class="page-foot">
+            <span class="author-credit">រៀបចំដោយ៖ លាត ប្រុស</span>
+            <span class="page-num">ទំព័រ 2</span>
+        </footer>
+    </section>
+
+    <!-- ====================================================================
+         ទំព័រទី ៣: ជំពូកទី ០១ - ស្វែងយល់អំពី DATABASE, RDBMS និង MYSQL
+         ==================================================================== -->
+    <section class="page" id="ch1">
+        <div class="page-body">
+            <header class="page-top-header">
+                <a href="#toc">Database (MySQL &amp; SQL Language)</a>
+                <span>01. Introduction to Database &amp; MySQL</span>
+            </header>
+
+            <h2 class="ch-title">01. ស្វែងយល់អំពី Database, RDBMS និង MySQL</h2>
+
+            <p class="step-heading">1. Definition (និយមន័យ):</p>
+            <p class="step-text">
+                <strong>Database (មូលដ្ឋានទិន្នន័យ)</strong> គឺជាកន្លែងសម្រាប់ផ្ទុក
+                និងរៀបចំទិន្នន័យឱ្យមានរបៀបរៀបរយនៅក្នុងប្រព័ន្ធកុំព្យូទ័រ ដើម្បីងាយស្រួលក្នុងការស្វែងរក កែប្រែ លុប
+                និងគ្រប់គ្រងប្រកបដោយសុវត្ថិភាព។
+            </p>
+
+            <p class="step-heading">2. ប្រភេទនៃ Database (ចែកចេញជា ២ ប្រភេទធំៗ):</p>
+            <ul class="step-list">
+                <li><strong>Relational Database (RDBMS / SQL)៖</strong> ផ្ទុកទិន្នន័យជាទម្រង់ <strong>តារាង
+                        (Tables)</strong> មាន Columns &amp; Rows ដែលអាចភ្ជាប់ទំនាក់ទំនងគ្នាបាន (ឧ. <code
+                        class="ic">MySQL</code>, <code class="ic">SQL Server</code>, <code
+                        class="ic">PostgreSQL</code>)។</li>
+                <li><strong>Non-Relational Database (NRDBMS / NoSQL)៖</strong> ផ្ទុកទិន្នន័យជាទម្រង់ <strong>Document
+                        (JSON)</strong> ឬ Key-Value ដោយមិនប្រើតារាងទេ (ឧ. <code class="ic">MongoDB</code>, <code
+                        class="ic">Firebase</code>, <code class="ic">Redis</code>)។</li>
+            </ul>
+
+            <p class="step-heading">3. ក្រុមនៃពាក្យបញ្ជា SQL (SQL Command Categories):</p>
+            <ul class="step-list">
+                <li><code class="ic">DDL</code> <strong>៖</strong> បង្កើត ឬកែប្រែរចនាសម្ព័ន្ធតារាង (<code
+                        class="ic">CREATE</code>, <code class="ic">ALTER</code>, <code class="ic">DROP</code>)។</li>
+                <li><code class="ic">DML</code> <strong>៖</strong> បញ្ចូល កែប្រែ និងលុបទិន្នន័យ (<code
+                        class="ic">INSERT</code>, <code class="ic">UPDATE</code>, <code class="ic">DELETE</code>)។</li>
+                <li><code class="ic">DQL</code> <strong>៖</strong> ទាញយកទិន្នន័យ (<code class="ic">SELECT</code>) និង
+                    <code class="ic">DCL/TCL</code> សម្រាប់គ្រប់គ្រងសិទ្ធិ និង Transaction។
+                </li>
+            </ul>
+
+            <p class="step-heading">4. Syntax (ទម្រង់ទូទៅ):</p>
+            <div class="syntax-box">
+                <pre>CREATE DATABASE database_name;
+USE database_name;
+SHOW DATABASES;</pre>
+            </div>
+
+            <p class="step-heading">5. Example (ឧទាហរណ៍កូដ):</p>
+            <div class="code-box">
+                <pre><span class="s-com">-- បង្កើត Database ថ្មី និងជ្រើសរើសយកមកប្រើប្រាស់</span>
+<span class="s-kw">CREATE DATABASE</span> school_db;
+<span class="s-kw">USE</span> school_db;
+
+<span class="s-com">-- បង្ហាញបញ្ជី Database ទាំងអស់ក្នុង Server</span>
+<span class="s-kw">SHOW DATABASES</span>;</pre>
+            </div>
+
+            <div class="summary-box">
+                <strong>6. Summary (សង្ខេបមេរៀន)៖</strong> <strong>MySQL</strong> ស្ថិតក្នុងក្រុម RDBMS (SQL)
+                សម្រាប់ផ្ទុកទិន្នន័យជាតារាង ចំណែក <strong>SQL</strong> គឺជាភាសាស្តង់ដារសម្រាប់បញ្ជាឱ្យ MySQL ធ្វើការងារ។
+            </div>
+        </div>
+
+        <footer class="page-foot">
+            <span class="author-credit">រៀបចំដោយ៖ លាត ប្រុស</span>
+            <span class="page-num">ទំព័រ 3</span>
+        </footer>
+    </section>
+
+    <!-- ====================================================================
+         ទំព័រទី ៤: ជំពូកទី ០២ - DATA TYPES & CONSTRAINTS
+         ==================================================================== -->
+    <section class="page" id="ch2">
+        <div class="page-body">
+            <header class="page-top-header">
+                <a href="#toc">Database (MySQL &amp; SQL Language)</a>
+                <span>02. Data Types &amp; Constraints</span>
+            </header>
+
+            <h2 class="ch-title">02. ប្រភេទទិន្នន័យ (Data Types) និង Constraints</h2>
+
+            <p class="step-heading">1. MySQL Data Types (ប្រភេទទិន្នន័យសំខាន់ៗ):</p>
+            <table class="db-table">
+                <thead>
+                    <tr>
+                        <th style="width: 24%;">Data Type</th>
+                        <th style="width: 18%;">ក្រុមទិន្នន័យ</th>
+                        <th>ការពន្យល់ និងការប្រើប្រាស់</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="ic">INT</code> / <code class="ic">BIGINT</code></td>
+                        <td>លេខគត់</td>
+                        <td>ផ្ទុកចំនួនគត់ ដូចជា ID, អាយុ, ចំនួនស្តុកទំនិញ។</td>
+                    </tr>
+                    <tr>
+                        <td><code class="ic">DECIMAL(10,2)</code></td>
+                        <td>លេខទសភាគ</td>
+                        <td>ផ្ទុកលេខទសភាគជាក់លាក់ ស័ក្តិសមសម្រាប់តម្លៃលុយ (ឧ. <code class="ic">99.50</code>)។</td>
+                    </tr>
+                    <tr>
+                        <td><code class="ic">VARCHAR(n)</code></td>
+                        <td>អក្សរ / ឃ្លា</td>
+                        <td>ផ្ទុកអក្សរប្រវែងប្រែប្រួល (អតិបរមា <code class="ic">n</code> តួអក្សរ) ដូចជា ឈ្មោះ, Email។
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code class="ic">TEXT</code> / <code class="ic">DATETIME</code></td>
+                        <td>អត្ថបទ / ថ្ងៃម៉ោង</td>
+                        <td><code class="ic">TEXT</code> ផ្ទុកអត្ថបទវែង និង <code class="ic">DATETIME</code> ផ្ទុក <code
+                                class="ic">YYYY-MM-DD HH:MM:SS</code>។</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p class="step-heading">2. Table Constraints (លក្ខខណ្ឌការពារទិន្នន័យ):</p>
+            <ul class="step-list" style="line-height: 1.52;">
+                <li><code class="ic">PRIMARY KEY</code> <strong>៖</strong> កំណត់ Column ជាលេខសម្គាល់តែមួយគត់ (មិនស្ទួន
+                    និងមិនអាចទទេ)។</li>
+                <li><code class="ic">AUTO_INCREMENT</code> <strong>៖</strong> បង្កើនលេខ ID
+                    ដោយស្វ័យប្រវត្តិរាល់ពេលបញ្ចូលទិន្នន័យថ្មី (<code class="ic">1, 2, 3...</code>)។</li>
+                <li><code class="ic">NOT NULL</code> <strong>៖</strong> បង្ខំឱ្យត្រូវតែបញ្ចូលទិន្នន័យ
+                    មិនអនុញ្ញាតឱ្យទុកទទេឡើយ។</li>
+                <li><code class="ic">UNIQUE</code> <strong>៖</strong> ការពារកុំឱ្យទិន្នន័យក្នុង Column នោះជាន់គ្នា (ឧ.
+                    Email ឬលេខទូរស័ព្ទ)។</li>
+                <li><code class="ic">DEFAULT</code> <strong>៖</strong> កំណត់តម្លៃដើមដោយស្វ័យប្រវត្តិ
+                    ប្រសិនបើអ្នកប្រើប្រាស់មិនបានបញ្ចូល។</li>
+            </ul>
+
+            <p class="step-heading">3. Syntax (ទម្រង់ទូទៅ):</p>
+            <div class="syntax-box">
+                <pre>CREATE TABLE table_name (
+    column1 datatype constraints,
+    column2 datatype constraints, ...
+);</pre>
+            </div>
+
+            <p class="step-heading">4. Example (ឧទាហរណ៍កូដ):</p>
+            <div class="code-box">
+                <pre><span class="s-kw">CREATE TABLE</span> students (
+    id <span class="s-kw">INT PRIMARY KEY AUTO_INCREMENT</span>,
+    full_name <span class="s-kw">VARCHAR</span>(<span class="s-num">100</span>) <span class="s-kw">NOT NULL</span>,
+    email <span class="s-kw">VARCHAR</span>(<span class="s-num">100</span>) <span class="s-kw">UNIQUE NOT NULL</span>,
+    tuition_fee <span class="s-kw">DECIMAL</span>(<span class="s-num">8</span>, <span class="s-num">2</span>) <span class="s-kw">DEFAULT</span> <span class="s-num">0.00</span>
+);</pre>
+            </div>
+
+            <div class="summary-box">
+                <strong>5. Summary (សង្ខេបមេរៀន)៖</strong> ការជ្រើសរើស <strong>Data Type</strong> និង
+                <strong>Constraints</strong> ឱ្យបានត្រឹមត្រូវ ជួយសន្សំសំចៃ Memory និងការពារកុំឱ្យមានទិន្នន័យខុសឆ្គង
+                ឬស្ទួន។
+            </div>
+        </div>
+
+        <footer class="page-foot">
+            <span class="author-credit">រៀបចំដោយ៖ លាត ប្រុស</span>
+            <span class="page-num">ទំព័រ 4</span>
+        </footer>
+    </section>
+
+    <!-- ====================================================================
+         ទំព័រទី ៥: ជំពូកទី ០៣ - DDL (CREATE, ALTER, DROP, TRUNCATE)
+         ==================================================================== -->
+    <section class="page" id="ch3">
+        <div class="page-body">
+            <header class="page-top-header">
+                <a href="#toc">Database (MySQL &amp; SQL Language)</a>
+                <span>03. Managing Databases &amp; Tables (DDL)</span>
+            </header>
+
+            <h2 class="ch-title">03. ការបង្កើត និងគ្រប់គ្រង Database &amp; Tables (DDL)</h2>
+
+            <p class="step-heading">1. Definition (និយមន័យ) និងឃ្លាបញ្ជា DDL:</p>
+            <ul class="step-list">
+                <li><code class="ic">CREATE</code> <strong>៖</strong> បង្កើត Database ឬតារាងថ្មី (<code
+                        class="ic">IF NOT EXISTS</code>)។</li>
+                <li><code class="ic">ALTER TABLE</code> <strong>៖</strong> កែប្រែរចនាសម្ព័ន្ធតារាង — បន្ថែម (<code
+                        class="ic">ADD</code>), កែប្រភេទ (<code class="ic">MODIFY</code>), ឬលុប (<code
+                        class="ic">DROP</code>) Column។</li>
+                <li><code class="ic">TRUNCATE</code> / <code class="ic">DROP</code> <strong>៖</strong>
+                    សម្អាតទិន្នន័យទាំងអស់ក្នុងតារាង / លុបតារាងចោលទាំងស្រុង។</li>
+            </ul>
+
+            <p class="step-heading">2. Syntax (ទម្រង់ទូទៅ):</p>
+            <div class="syntax-box">
+                <pre>ALTER TABLE table_name ADD COLUMN column_name datatype;
+ALTER TABLE table_name MODIFY COLUMN column_name new_datatype;
+ALTER TABLE table_name DROP COLUMN column_name;
+TRUNCATE TABLE table_name;   |   DROP TABLE IF EXISTS table_name;</pre>
+            </div>
+
+            <p class="step-heading">3. Example (ឧទាហរណ៍កូដ):</p>
+            <div class="code-box">
+                <pre><span class="s-com">-- ១. បន្ថែម, កែប្រភេទ និងលុប Column ក្នុងតារាង products</span>
+<span class="s-kw">ALTER TABLE</span> products <span class="s-kw">ADD COLUMN</span> stock <span class="s-kw">INT DEFAULT</span> <span class="s-num">0</span>;
+<span class="s-kw">ALTER TABLE</span> products <span class="s-kw">MODIFY COLUMN</span> name <span class="s-kw">VARCHAR</span>(<span class="s-num">200</span>) <span class="s-kw">NOT NULL</span>;
+<span class="s-kw">ALTER TABLE</span> products <span class="s-kw">DROP COLUMN</span> stock;
+
+<span class="s-com">-- ២. ពិនិត្យរចនាសម្ព័ន្ធ, សម្អាតទិន្នន័យ និងលុបតារាង</span>
+<span class="s-kw">DESCRIBE</span> products;
+<span class="s-kw">TRUNCATE TABLE</span> products;
+<span class="s-kw">DROP TABLE IF EXISTS</span> products;</pre>
+            </div>
+
+            <div class="note-box">
+                <strong>ចំណាំសំខាន់៖</strong> ត្រូវប្រុងប្រយ័ត្នខ្ពស់ពេលប្រើ <code class="ic">DROP</code> និង <code
+                    class="ic">TRUNCATE</code> ព្រោះទិន្នន័យដែលបានលុបមិនអាច Undo (<code class="ic">ROLLBACK</code>)
+                មកវិញបានទេ។
+            </div>
+
+            <div class="summary-box">
+                <strong>4. Summary (សង្ខេបមេរៀន)៖</strong> ប្រើ <code class="ic">CREATE</code> ដើម្បីបង្កើត, <code
+                    class="ic">ALTER</code> ដើម្បីកែប្រែជួរឈរ, <code class="ic">TRUNCATE</code> ដើម្បីសម្អាតទិន្នន័យ និង
+                <code class="ic">DROP</code> ដើម្បីលុបតារាងទាំងមូល។
+            </div>
+        </div>
+
+        <footer class="page-foot">
+            <span class="author-credit">រៀបចំដោយ៖ លាត ប្រុស</span>
+            <span class="page-num">ទំព័រ 5</span>
+        </footer>
+    </section>
+
+    <!-- ====================================================================
+         ទំព័រទី ៦: ជំពូកទី ០៤ - DML (INSERT, UPDATE, DELETE)
+         ==================================================================== -->
+    <section class="page" id="ch4">
+        <div class="page-body">
+            <header class="page-top-header">
+                <a href="#toc">Database (MySQL &amp; SQL Language)</a>
+                <span>04. Insert, Update &amp; Delete (DML)</span>
+            </header>
+
+            <h2 class="ch-title">04. ការបញ្ចូល កែប្រែ និងលុបទិន្នន័យ (DML)</h2>
+
+            <p class="step-heading">1. Definition (និយមន័យ):</p>
+            <p class="step-text">
+                <strong>DML (Data Manipulation Language)</strong> គឺជាក្រុមឃ្លាបញ្ជា SQL សម្រាប់គ្រប់គ្រង
+                និងកែសម្រួលទិន្នន័យ (Rows) នៅក្នុងតារាងនៃ Database។
+            </p>
+
+            <p class="step-heading">2. មុខងារសំខាន់ៗ (DML Commands):</p>
+            <ul class="step-list" style="line-height: 1.54;">
+                <li><code class="ic">INSERT INTO</code> <strong>៖</strong> ប្រើសម្រាប់បញ្ចូលជួរទិន្នន័យ (Rows) ថ្មីមួយ
+                    ឬច្រើនជួរចូលទៅក្នុងតារាង។</li>
+                <li><code class="ic">UPDATE ... SET</code> <strong>៖</strong> ប្រើសម្រាប់កែប្រែតម្លៃទិន្នន័យដែលមានស្រាប់
+                    ដោយផ្អែកតាមលក្ខខណ្ឌ <code class="ic">WHERE</code>។</li>
+                <li><code class="ic">DELETE FROM</code> <strong>៖</strong> ប្រើសម្រាប់លុបជួរទិន្នន័យជាក់លាក់ចេញពីតារាង
+                    ដោយផ្អែកតាមលក្ខខណ្ឌ <code class="ic">WHERE</code>។</li>
+            </ul>
+
+            <p class="step-heading">3. Syntax (ទម្រង់ទូទៅ):</p>
+            <div class="syntax-box">
+                <pre>INSERT INTO table_name (column1, column2, ...) VALUES (value1, value2, ...);
+UPDATE table_name SET column1 = value1, column2 = value2, ... WHERE condition;
+DELETE FROM table_name WHERE condition;</pre>
+            </div>
+
+            <p class="step-heading">4. Example (ឧទាហរណ៍កូដ):</p>
+            <div class="code-box">
+                <pre><span class="s-com">-- ១. បញ្ចូលទិន្នន័យថ្មីចូលក្នុងតារាង category</span>
+<span class="s-kw">INSERT INTO</span> category (name, description)
+<span class="s-kw">VALUES</span> (<span class="s-str">'Laptop'</span>, <span class="s-str">'កុំព្យូទ័រយួរដៃ'</span>), (<span class="s-str">'Phone'</span>, <span class="s-str">'ទូរស័ព្ទឆ្លាតវៃ'</span>);
+
+<span class="s-com">-- ២. កែប្រែទិន្នន័យតាមលក្ខខណ្ឌ WHERE</span>
+<span class="s-kw">UPDATE</span> category
+<span class="s-kw">SET</span> name = <span class="s-str">'Gaming Laptop'</span>, description = <span class="s-str">'កុំព្យូទ័រសម្រាប់ Gaming'</span>
+<span class="s-kw">WHERE</span> id = <span class="s-num">1</span>;
+
+<span class="s-com">-- ៣. លុបទិន្នន័យដែលមាន id = 7 ឬលុបច្រើនជួរ</span>
+<span class="s-kw">DELETE FROM</span> category <span class="s-kw">WHERE</span> id = <span class="s-num">7</span>;
+<span class="s-kw">DELETE FROM</span> brands <span class="s-kw">WHERE</span> id <span class="s-kw">IN</span> (<span class="s-num">6</span>, <span class="s-num">8</span>, <span class="s-num">9</span>);</pre>
+            </div>
+
+            <div class="note-box">
+                <strong>ការព្រមានសំខាន់៖</strong> ហាមភ្លេចដាក់ <code class="ic">WHERE</code> ពេលសរសេរ <code
+                    class="ic">UPDATE</code> ឬ <code class="ic">DELETE</code>! ប្រសិនបើគ្មាន <code
+                    class="ic">WHERE</code> ទេ MySQL នឹងកែប្រែ ឬលុបទិន្នន័យ <strong>គ្រប់ជួរទាំងអស់</strong>
+                ក្នុងតារាងភ្លាមៗ។
+            </div>
+
+            <div class="summary-box">
+                <strong>5. Summary (សង្ខេបមេរៀន)៖</strong> <code class="ic">INSERT</code> សម្រាប់បន្ថែម, <code
+                    class="ic">UPDATE</code> សម្រាប់កែប្រែ និង <code class="ic">DELETE</code> សម្រាប់លុបទិន្នន័យ
+                ដោយត្រូវភ្ជាប់ <code class="ic">WHERE</code> ជាមួយ Primary Key (<code class="ic">id</code>) ជានិច្ច។
+            </div>
+        </div>
+
+        <footer class="page-foot">
+            <span class="author-credit">រៀបចំដោយ៖ លាត ប្រុស</span>
+            <span class="page-num">ទំព័រ 6</span>
+        </footer>
+    </section>
+
+    <!-- ====================================================================
+         ទំព័រទី ៧: ជំពូកទី ០៥ - DQL (SELECT, WHERE, LIKE, IN, BETWEEN)
+         ==================================================================== -->
+    <section class="page" id="ch5">
+        <div class="page-body">
+            <header class="page-top-header">
+                <a href="#toc">Database (MySQL &amp; SQL Language)</a>
+                <span>05. Querying &amp; Filtering Data</span>
+            </header>
+
+            <h2 class="ch-title">05. ការទាញយក និងច្រោះទិន្នន័យ (SELECT &amp; WHERE)</h2>
+
+            <p class="step-heading">1. ប្រមាណវិធីច្រោះទិន្នន័យសំខាន់ៗ (Filtering Operators):</p>
+            <ul class="step-list" style="line-height: 1.46;">
+                <li><strong>Comparison Operators (ប្រៀបធៀបតម្លៃ)៖</strong>
+                    <ul>
+                        <li><code class="ic">=</code> <strong>៖</strong> ស្មើនឹង (Equal)។</li>
+                        <li><code class="ic">!=</code> ឬ <code class="ic">&lt;&gt;</code> <strong>៖</strong> មិនស្មើនឹង
+                            (Not Equal)។</li>
+                        <li><code class="ic">&gt;</code> <strong>៖</strong> ធំជាង (Greater Than)។</li>
+                        <li><code class="ic">&lt;</code> <strong>៖</strong> តូចជាង (Less Than)។</li>
+                        <li><code class="ic">&gt;=</code> <strong>៖</strong> ធំជាង ឬស្មើ (Greater Than or Equal)។</li>
+                        <li><code class="ic">&lt;=</code> <strong>៖</strong> តូចជាង ឬស្មើ (Less Than or Equal)។</li>
+                    </ul>
+                </li>
+                <li><strong>Logical Operators (តក្កវិទ្យា)៖</strong>
+                    <ul>
+                        <li><code class="ic">AND</code> <strong>៖</strong> ពិត លុះត្រាតែលក្ខខណ្ឌទាំងអស់ពិតដូចគ្នា។</li>
+                        <li><code class="ic">OR</code> <strong>៖</strong> ពិត ប្រសិនបើមានលក្ខខណ្ឌយ៉ាងតិចមួយពិត។</li>
+                        <li><code class="ic">NOT</code> <strong>៖</strong> ត្រឡប់លក្ខខណ្ឌឱ្យផ្ទុយពីដើម។</li>
+                    </ul>
+                </li>
+                <li><code class="ic">BETWEEN a AND b</code> <strong>៖</strong> ច្រោះតម្លៃដែលស្ថិតនៅចន្លោះពី <code
+                        class="ic">a</code> ដល់ <code class="ic">b</code> (រាប់បញ្ចូលទាំងពីរ)។</li>
+                <li><code class="ic">IN (v1, v2, ...)</code> <strong>៖</strong> ច្រោះតម្លៃដែលត្រូវនឹងធាតុណាមួយក្នុងបញ្ជី
+                    (ខ្លីជាងប្រើ <code class="ic">OR</code> ច្រើនដង)។</li>
+                <li><code class="ic">LIKE</code> <strong>៖</strong> ស្វែងរកតាមលំនាំអក្សរ (Pattern) ដោយប្រើ <code
+                        class="ic">%</code> (តួអក្សរច្រើន) និង <code class="ic">_</code> (១ តួអក្សរ)។</li>
+                <li><code class="ic">IS NULL</code> / <code class="ic">IS NOT NULL</code> <strong>៖</strong>
+                    ពិនិត្យមើលតម្លៃទទេ ឬមិនទទេ (មិនអាចប្រើ <code class="ic">= NULL</code> បានទេ)។</li>
+            </ul>
+
+            <p class="step-heading">2. Syntax (ទម្រង់ទូទៅ):</p>
+            <div class="syntax-box">
+                <pre>SELECT * FROM table_name;                         -- ទាញយកគ្រប់ Column និងគ្រប់ជួរ
+SELECT * FROM table_name WHERE condition;         -- ទាញយកគ្រប់ Column តាមលក្ខខណ្ឌ
+SELECT column1, column2, ... FROM table_name WHERE condition;</pre>
+            </div>
+
+            <p class="step-heading">3. Example (ឧទាហរណ៍កូដ):</p>
+            <div class="code-box">
+                <pre><span class="s-com">-- ១. ទាញយកតែ Columns ចាំបាច់តាមលក្ខខណ្ឌ</span>
+<span class="s-kw">SELECT</span> full_name, tuition_fee <span class="s-kw">FROM</span> students <span class="s-kw">WHERE</span> tuition_fee &gt;= <span class="s-num">120</span>;
+
+<span class="s-com">-- ២. ច្រោះដោយប្រើ BETWEEN និង IN</span>
+<span class="s-kw">SELECT</span> * <span class="s-kw">FROM</span> products <span class="s-kw">WHERE</span> price <span class="s-kw">BETWEEN</span> <span class="s-num">10</span> <span class="s-kw">AND</span> <span class="s-num">50</span>;
+<span class="s-kw">SELECT</span> * <span class="s-kw">FROM</span> users <span class="s-kw">WHERE</span> city <span class="s-kw">IN</span> (<span class="s-str">'Phnom Penh'</span>, <span class="s-str">'Siem Reap'</span>);
+
+<span class="s-com">-- ៣. ស្វែងរកតាមលំនាំអក្សរ LIKE និងតម្លៃទទេ IS NOT NULL</span>
+<span class="s-kw">SELECT</span> * <span class="s-kw">FROM</span> students <span class="s-kw">WHERE</span> full_name <span class="s-kw">LIKE</span> <span class="s-str">'សុខ%'</span> <span class="s-kw">AND</span> phone <span class="s-kw">IS NOT NULL</span>;</pre>
+            </div>
+
+            <div class="summary-box">
+                <strong>4. Summary (សង្ខេបមេរៀន)៖</strong> នៅក្នុងប្រព័ន្ធពិត គួរសរសេរឈ្មោះ Column ជាក់លាក់ជំនួស <code
+                    class="ic">SELECT *</code> ដើម្បីឱ្យ Query ដំណើរការលឿន និងសន្សំសំចៃ Bandwidth។
+            </div>
+        </div>
+
+        <footer class="page-foot">
+            <span class="author-credit">រៀបចំដោយ៖ លាត ប្រុស</span>
+            <span class="page-num">ទំព័រ 7</span>
+        </footer>
+    </section>
+
+    <!-- ====================================================================
+         ទំព័រទី ៨: ជំពូកទី ០៦ - ORDER BY, LIMIT, OFFSET, DISTINCT, ALIAS
+         ==================================================================== -->
+    <section class="page" id="ch6">
+        <div class="page-body">
+            <header class="page-top-header">
+                <a href="#toc">Database (MySQL &amp; SQL Language)</a>
+                <span>06. Sorting, Pagination &amp; Aliases</span>
+            </header>
+
+            <h2 class="ch-title">06. ការតម្រៀប និងកំណត់ចំនួនទិន្នន័យ (ORDER BY &amp; LIMIT)</h2>
+
+            <p class="step-heading">1. ឃ្លាបញ្ជាសម្រាប់រៀបចំលទ្ធផលទិន្នន័យ៖</p>
+            <ul class="step-list" style="line-height: 1.54;">
+                <li><code class="ic">ORDER BY</code> <strong>៖</strong> តម្រៀបទិន្នន័យតាមលំដាប់កើន <code
+                        class="ic">ASC</code> (តូចទៅធំ) ឬលំដាប់ចុះ <code class="ic">DESC</code> (ធំទៅតូច)។</li>
+                <li><code class="ic">LIMIT n</code> <strong>៖</strong> កំណត់ចំនួនជួរដេកអតិបរមាដែលត្រូវបង្ហាញ (ឧ.
+                    ទាញយកទំនិញលក់ដាច់ Top 5)។</li>
+                <li><code class="ic">OFFSET m</code> <strong>៖</strong> រំលងទិន្នន័យចំនួន <code class="ic">m</code>
+                    ជួរដំបូង (ប្រើគូជាមួយ <code class="ic">LIMIT</code> ដើម្បីធ្វើ <strong>Pagination</strong>)។</li>
+                <li><code class="ic">DISTINCT</code> <strong>៖</strong> ច្រោះយកតែតម្លៃដែលមិនជាន់គ្នា
+                    (លុបទិន្នន័យស្ទួនចេញពីលទ្ធផល)។</li>
+                <li><code class="ic">AS</code> <strong>(Alias)៖</strong> ដាក់ឈ្មោះក្លែងក្លាយបណ្តោះអាសន្នឱ្យ Column ឬ
+                    Table ដើម្បីឱ្យលទ្ធផលងាយអាន។</li>
+            </ul>
+
+            <p class="step-heading">2. Syntax (ទម្រង់ទូទៅ):</p>
+            <div class="syntax-box">
+                <pre>SELECT DISTINCT column1 AS alias_name
+FROM table_name
+WHERE condition
+ORDER BY column1 ASC | DESC
+LIMIT count OFFSET skip_rows;</pre>
+            </div>
+
+            <p class="step-heading">3. Example (ឧទាហរណ៍កូដ):</p>
+            <div class="code-box">
+                <pre><span class="s-com">-- ១. ទាញយកខេត្ត/ក្រុងដោយមិនជាន់ឈ្មោះ និងទាញយកផលិតផលថ្លៃបំផុត Top 5</span>
+<span class="s-kw">SELECT DISTINCT</span> city <span class="s-kw">FROM</span> users;
+
+<span class="s-kw">SELECT</span> name <span class="s-kw">AS</span> product_name, price <span class="s-kw">AS</span> unit_price
+<span class="s-kw">FROM</span> products <span class="s-kw">ORDER BY</span> price <span class="s-kw">DESC LIMIT</span> <span class="s-num">5</span>;
+
+<span class="s-com">-- ២. ការធ្វើ Pagination (ទំព័រទី ២ ដោយ ១ ទំព័របង្ហាញ ១០ ជួរ)</span>
+<span class="s-kw">SELECT</span> id, full_name, email <span class="s-kw">FROM</span> students
+<span class="s-kw">ORDER BY</span> id <span class="s-kw">ASC LIMIT</span> <span class="s-num">10</span> <span class="s-kw">OFFSET</span> <span class="s-num">10</span>;</pre>
+            </div>
+
+            <div class="note-box">
+                <strong>រូបមន្ត Pagination ក្នុង Web Development៖</strong> <code
+                    class="ic">OFFSET = (page_number - 1) * page_size</code>។ ឧទាហរណ៍៖ ទំព័រទី 3 យក 10 ជួរ នោះ <code
+                    class="ic">OFFSET = (3 - 1) * 10 = 20</code>។
+            </div>
+
+            <div class="summary-box">
+                <strong>4. Summary (សង្ខេបមេរៀន)៖</strong> លំដាប់សរសេរ Query ត្រឹមត្រូវគឺ <code
+                    class="ic">SELECT ... FROM ... WHERE ... ORDER BY ... LIMIT ... OFFSET ...</code>។
+            </div>
+        </div>
+
+        <footer class="page-foot">
+            <span class="author-credit">រៀបចំដោយ៖ លាត ប្រុស</span>
+            <span class="page-num">ទំព័រ 8</span>
+        </footer>
+    </section>
+
+    <!-- ====================================================================
+         ទំព័រទី ៩: ជំពូកទី ០៧ - AGGREGATE FUNCTIONS, GROUP BY & HAVING
+         ==================================================================== -->
+    <section class="page" id="ch7">
+        <div class="page-body">
+            <header class="page-top-header">
+                <a href="#toc">Database (MySQL &amp; SQL Language)</a>
+                <span>07. Aggregate Functions &amp; Grouping</span>
+            </header>
+
+            <h2 class="ch-title">07. អនុគមន៍គណនា និងការផ្តុំទិន្នន័យ (GROUP BY &amp; HAVING)</h2>
+
+            <p class="step-heading">1. Aggregate Functions និងភាពខុសគ្នារវាង WHERE vs HAVING:</p>
+            <ul class="step-list" style="line-height: 1.46;">
+                <li><strong>Aggregate Functions (អនុគមន៍គណនាស្ថិតិទាំង ៥)៖</strong>
+                    <ul>
+                        <li><code class="ic">COUNT()</code> <strong>៖</strong> រាប់ចំនួនជួរដេកសរុប។</li>
+                        <li><code class="ic">SUM()</code> <strong>៖</strong> បូកសរុបតម្លៃលេខទាំងអស់ក្នុង Column។</li>
+                        <li><code class="ic">AVG()</code> <strong>៖</strong> គណនាតម្លៃមធ្យមភាគ (Average)។</li>
+                        <li><code class="ic">MIN()</code> <strong>៖</strong> ស្វែងរកតម្លៃតូចបំផុត (Minimum)។</li>
+                        <li><code class="ic">MAX()</code> <strong>៖</strong> ស្វែងរកតម្លៃធំបំផុត (Maximum)។</li>
+                    </ul>
+                </li>
+                <li><code class="ic">GROUP BY</code> <strong>៖</strong> ប្រមូលផ្តុំទិន្នន័យដែលមានតម្លៃដូចគ្នាជាក្រុម
+                    ដើម្បីគណនាស្ថិតិ។</li>
+                <li><code class="ic">WHERE</code> <strong>៖</strong> ច្រោះជួរដេកនីមួយៗ <strong>មុនពេល</strong> ធ្វើ
+                    <code class="ic">GROUP BY</code> (មិនអាចប្រើជាមួយ <code class="ic">SUM/COUNT</code> បានទេ)។
+                </li>
+                <li><code class="ic">HAVING</code> <strong>៖</strong> ច្រោះក្រុមទិន្នន័យ <strong>បន្ទាប់ពី</strong> ធ្វើ
+                    <code class="ic">GROUP BY</code> រួច (ប្រើជាមួយ <code class="ic">SUM/COUNT/AVG</code>)។
+                </li>
+            </ul>
+
+            <p class="step-heading">2. Syntax (ទម្រង់ទូទៅ):</p>
+            <div class="syntax-box">
+                <pre>SELECT column1, AGG_FUNC(column2)
+FROM table_name
+WHERE row_condition
+GROUP BY column1
+HAVING group_condition
+ORDER BY column1;</pre>
+            </div>
+
+            <p class="step-heading">3. Example (ឧទាហរណ៍កូដ):</p>
+            <div class="code-box">
+                <pre><span class="s-com">-- ១. គណនាស្ថិតិទូទៅនៃការបញ្ជាទិញ</span>
+<span class="s-kw">SELECT</span> <span class="s-fn">COUNT</span>(*) <span class="s-kw">AS</span> total_orders, <span class="s-fn">SUM</span>(amount) <span class="s-kw">AS</span> revenue, <span class="s-fn">AVG</span>(amount) <span class="s-kw">AS</span> avg_val
+<span class="s-kw">FROM</span> orders;
+
+<span class="s-com">-- ២. បូកសរុបចំណូលតាមប្រភេទទំនិញ យកតែប្រភេទលក់បានលើស $500</span>
+<span class="s-kw">SELECT</span> category, <span class="s-fn">COUNT</span>(*) <span class="s-kw">AS</span> items, <span class="s-fn">SUM</span>(price) <span class="s-kw">AS</span> total_sales
+<span class="s-kw">FROM</span> products
+<span class="s-kw">WHERE</span> status = <span class="s-str">'ACTIVE'</span>
+<span class="s-kw">GROUP BY</span> category
+<span class="s-kw">HAVING</span> <span class="s-fn">SUM</span>(price) &gt; <span class="s-num">500</span>
+<span class="s-kw">ORDER BY</span> total_sales <span class="s-kw">DESC</span>;</pre>
+            </div>
+
+            <div class="summary-box">
+                <strong>4. Summary (សង្ខេបមេរៀន)៖</strong> ប្រើ <code class="ic">GROUP BY</code>
+                ដើម្បីធ្វើរបាយការណ៍សង្ខេប ហើយចងចាំថា <code class="ic">WHERE</code> មិនអាចប្រើជាមួយ <code
+                    class="ic">SUM/COUNT</code> បានទេ ត្រូវប្រើ <code class="ic">HAVING</code> ជំនួស។
+            </div>
+        </div>
+
+        <footer class="page-foot">
+            <span class="author-credit">រៀបចំដោយ៖ លាត ប្រុស</span>
+            <span class="page-num">ទំព័រ 9</span>
+        </footer>
+    </section>
+
+    <!-- ====================================================================
+         ទំព័រទី ១០: ជំពូកទី ០៨ - PRIMARY KEY, FOREIGN KEY & RELATIONSHIPS
+         ==================================================================== -->
+    <section class="page" id="ch8">
+        <div class="page-body">
+            <header class="page-top-header">
+                <a href="#toc">Database (MySQL &amp; SQL Language)</a>
+                <span>08. Keys &amp; Table Relationships</span>
+            </header>
+
+            <h2 class="ch-title">08. ទំនាក់ទំនងរវាងតារាង (Keys &amp; Relationships)</h2>
+
+            <p class="step-heading">1. Definition (និយមន័យ):</p>
+            <ul class="step-list" style="line-height: 1.5;">
+                <li><strong>Keys (កូនសោទិន្នន័យ)៖</strong> ជា Column ពិសេសប្រើសម្រាប់សម្គាល់ជួរដេកនីមួយៗឱ្យមានតែមួយគត់
+                    (<code class="ic">Primary Key</code>) និងសម្រាប់ភ្ជាប់ទំនាក់ទំនងពីតារាងកូនទៅតារាងមេ (<code
+                        class="ic">Foreign Key</code>)។</li>
+                <li><strong>Relationships (ទំនាក់ទំនងរវាងតារាង)៖</strong> ជាការតភ្ជាប់ទិន្នន័យរវាងតារាង ២ ឬច្រើនចូលគ្នា
+                    ដើម្បីកាត់បន្ថយការផ្ទុកទិន្នន័យស្ទួន និងការពារភាពត្រឹមត្រូវនៃទិន្នន័យ។</li>
+            </ul>
+
+            <p class="step-heading">2. ប្រភេទទំនាក់ទំនងទាំង ៣ ក្នុងការរចនា Database (ERD):</p>
+            <table class="db-table">
+                <thead>
+                    <tr>
+                        <th style="width: 24%;">ប្រភេទទំនាក់ទំនង</th>
+                        <th>ការពន្យល់ និងឧទាហរណ៍ជាក់ស្តែង</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>One-to-One (1:1)</strong></td>
+                        <td>១ ជួរតារាង A ភ្ជាប់ជាមួយ ១ ជួរតារាង B (ឧ. ១ User មាន ១ Profile)។</td>
+                    </tr>
+                    <tr>
+                        <td><strong>One-to-Many (1:N)</strong></td>
+                        <td>១ ជួរតារាង A ភ្ជាប់ច្រើនជួរតារាង B (ឧ. ១ Customer មានច្រើន Orders) —
+                            <em>ប្រើញឹកញាប់បំផុត!</em>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Many-to-Many (M:N)</strong></td>
+                        <td>ប្រើតារាងកណ្តាល (Junction Table) ដើម្បីភ្ជាប់ (ឧ. Students &amp; Courses តាម <code
+                                class="ic">enrollments</code>)។</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p class="step-heading">3. Syntax (ទម្រង់ទូទៅនៃ Foreign Key):</p>
+            <div class="syntax-box">
+                <pre>CREATE TABLE child_table (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    parent_id INT,
+    FOREIGN KEY (parent_id) REFERENCES parent_table(id) ON DELETE CASCADE
+);</pre>
+            </div>
+
+            <p class="step-heading">4. Example (ឧទាហរណ៍កូដ):</p>
+            <div class="code-box">
+                <pre><span class="s-kw">CREATE TABLE</span> customers (
+    id <span class="s-kw">INT PRIMARY KEY AUTO_INCREMENT</span>,
+    full_name <span class="s-kw">VARCHAR</span>(<span class="s-num">100</span>) <span class="s-kw">NOT NULL</span>
+);
+
+<span class="s-kw">CREATE TABLE</span> orders (
+    id <span class="s-kw">INT PRIMARY KEY AUTO_INCREMENT</span>,
+    customer_id <span class="s-kw">INT NOT NULL</span>,
+    total_amount <span class="s-kw">DECIMAL</span>(<span class="s-num">10</span>, <span class="s-num">2</span>) <span class="s-kw">NOT NULL</span>,
+    <span class="s-kw">CONSTRAINT</span> fk_orders_customer
+        <span class="s-kw">FOREIGN KEY</span> (customer_id) <span class="s-kw">REFERENCES</span> customers(id)
+        <span class="s-kw">ON DELETE CASCADE ON UPDATE CASCADE</span>
+);</pre>
+            </div>
+
+            <div class="summary-box">
+                <strong>5. Summary (សង្ខេបមេរៀន)៖</strong> <strong>Primary Key (PK)</strong> សម្គាល់ជួរដេកក្នុងតារាងមេ
+                ចំណែក <strong>Foreign Key (FK)</strong> ភ្ជាប់តារាងកូនទៅតារាងមេ ដើម្បីបង្កើតជា
+                <strong>Relationships</strong> ដ៏រឹងមាំ។
+            </div>
+        </div>
+
+        <footer class="page-foot">
+            <span class="author-credit">រៀបចំដោយ៖ លាត ប្រុស</span>
+            <span class="page-num">ទំព័រ 10</span>
+        </footer>
+    </section>
+
+    <!-- ====================================================================
+         ទំព័រទី ១១: ជំពូកទី ០៩ - SQL JOINS (INNER, LEFT, RIGHT, CROSS)
+         ==================================================================== -->
+    <section class="page" id="ch9">
+        <div class="page-body">
+            <header class="page-top-header">
+                <a href="#toc">Database (MySQL &amp; SQL Language)</a>
+                <span>09. Joining Multiple Tables</span>
+            </header>
+
+            <h2 class="ch-title">09. ការភ្ជាប់តារាងចូលគ្នា (SQL JOINS)</h2>
+
+            <p class="step-heading">1. Definition (និយមន័យ):</p>
+            <p class="step-text">
+                <strong>SQL JOIN</strong> គឺជាឃ្លាបញ្ជាប្រើសម្រាប់ទាញយក និងបញ្ចូលទិន្នន័យពីតារាង ២
+                ឬច្រើនចូលគ្នាតែមួយលទ្ធផល ដោយផ្អែកលើជួរឈរដែលមានទំនាក់ទំនងគ្នា (<code class="ic">Primary Key</code> និង
+                <code class="ic">Foreign Key</code>)។
+            </p>
+
+            <p class="step-heading">2. ប្រភេទ JOIN សំខាន់ៗទាំង ៤៖</p>
+            <div class="two-col">
+                <div class="mini-card">
+                    <h4>INNER JOIN</h4>
+                    ទាញយកតែជួរដេកណាដែលមានទិន្នន័យ <strong>ផ្គូផ្គងត្រូវគ្នាទាំងសងខាង</strong>។
+                </div>
+                <div class="mini-card">
+                    <h4>LEFT JOIN</h4>
+                    ទាញយក <strong>ទាំងអស់ពីតារាងឆ្វេង</strong> និងទិន្នន័យត្រូវគ្នាពីតារាងស្តាំ (បើគ្មានចេញ <code
+                        class="ic">NULL</code>)។
+                </div>
+                <div class="mini-card">
+                    <h4>RIGHT JOIN</h4>
+                    ទាញយក <strong>ទាំងអស់ពីតារាងស្តាំ</strong> និងទិន្នន័យត្រូវគ្នាពីតារាងឆ្វេង។
+                </div>
+                <div class="mini-card">
+                    <h4>CROSS JOIN</h4>
+                    គុណផ្គូផ្គងគ្រប់ជួរនៃតារាងទី ១ ជាមួយគ្រប់ជួរនៃតារាងទី ២។
+                </div>
+            </div>
+
+            <p class="step-heading">3. Syntax (ទម្រង់ទូទៅ):</p>
+            <div class="syntax-box">
+                <pre>SELECT a.column1, b.column2
+FROM table_a a
+INNER | LEFT | RIGHT JOIN table_b b ON a.id = b.table_a_id;</pre>
+            </div>
+
+            <p class="step-heading">4. Example (ឧទាហរណ៍កូដ):</p>
+            <div class="code-box">
+                <pre><span class="s-com">-- ១. INNER JOIN: ទាញយកតែអតិថិជនដែលធ្លាប់បានបញ្ជាទិញ</span>
+<span class="s-kw">SELECT</span> c.full_name, o.id <span class="s-kw">AS</span> order_id, o.total_amount
+<span class="s-kw">FROM</span> customers c
+<span class="s-kw">INNER JOIN</span> orders o <span class="s-kw">ON</span> c.id = o.customer_id;
+
+<span class="s-com">-- ២. LEFT JOIN: ទាញយកអតិថិជនទាំងអស់ (រួមទាំងអ្នកមិនទាន់ធ្លាប់ទិញ)</span>
+<span class="s-kw">SELECT</span> c.full_name, <span class="s-fn">COUNT</span>(o.id) <span class="s-kw">AS</span> total_orders
+<span class="s-kw">FROM</span> customers c
+<span class="s-kw">LEFT JOIN</span> orders o <span class="s-kw">ON</span> c.id = o.customer_id
+<span class="s-kw">GROUP BY</span> c.id, c.full_name;</pre>
+            </div>
+
+            <div class="summary-box">
+                <strong>5. Summary (សង្ខេបមេរៀន)៖</strong> ក្នុងការងារជាក់ស្តែង <code class="ic">INNER JOIN</code> និង
+                <code class="ic">LEFT JOIN</code> ត្រូវបានប្រើប្រាស់ប្រមាណ ៩៥% នៃការសរសេរ Query ភ្ជាប់តារាងទាំងអស់។
+            </div>
+        </div>
+
+        <footer class="page-foot">
+            <span class="author-credit">រៀបចំដោយ៖ លាត ប្រុស</span>
+            <span class="page-num">ទំព័រ 11</span>
+        </footer>
+    </section>
+
+    <!-- ====================================================================
+         ទំព័រទី ១២: ជំពូកទី ១០ - SUBQUERIES & CTE (COMMON TABLE EXPRESSIONS)
+         ==================================================================== -->
+    <section class="page" id="ch10">
+        <div class="page-body">
+            <header class="page-top-header">
+                <a href="#toc">Database (MySQL &amp; SQL Language)</a>
+                <span>10. Subqueries &amp; CTE (Advance)</span>
+            </header>
+
+            <h2 class="ch-title">10. Subqueries និង Common Table Expressions (CTE)</h2>
+
+            <p class="step-heading">1. Definition (និយមន័យ):</p>
+            <ul class="step-list">
+                <li><strong>Subquery (Query ក្នុង Query)៖</strong> គឺជាឃ្លាបញ្ជា <code class="ic">SELECT</code>
+                    នៅក្នុងវង់ក្រចក <code class="ic">( ... )</code> នៃ Query ធំមួយទៀត ដើម្បីផ្តល់លទ្ធផលយកទៅប្រៀបធៀប។
+                </li>
+                <li><strong>CTE (<code class="ic">WITH</code>)៖</strong>
+                    គឺជាការបង្កើតតារាងបណ្តោះអាសន្នមានឈ្មោះច្បាស់លាស់
+                    (MySQL 8.0+) ធ្វើឱ្យ Query ដែលស្មុគស្មាញ ក្លាយមកជាងាយអាន និងងាយថែទាំជាង Subquery។</li>
+            </ul>
+
+            <p class="step-heading">2. Syntax (ទម្រង់ទូទៅ):</p>
+            <div class="syntax-box">
+                <pre>-- Subquery:  SELECT col FROM table1 WHERE col &gt; (SELECT AVG(col) FROM table1);
+-- CTE:       WITH cte_name AS (SELECT ...) SELECT * FROM cte_name;</pre>
+            </div>
+
+            <p class="step-heading">3. Example (ឧទាហរណ៍កូដ):</p>
+            <div class="code-box">
+                <pre><span class="s-com">-- ១. Subquery: រកផលិតផលដែលមានតម្លៃខ្ពស់ជាងតម្លៃមធ្យម</span>
+<span class="s-kw">SELECT</span> name, price <span class="s-kw">FROM</span> products
+<span class="s-kw">WHERE</span> price &gt; (<span class="s-kw">SELECT</span> <span class="s-fn">AVG</span>(price) <span class="s-kw">FROM</span> products);
+
+<span class="s-com">-- ២. CTE (WITH): គណនាចំណូលតាមអតិថិជន រួចច្រោះយកតែអតិថិជន VIP (&gt;= $500)</span>
+<span class="s-kw">WITH</span> customer_spending <span class="s-kw">AS</span> (
+    <span class="s-kw">SELECT</span> customer_id, <span class="s-fn">SUM</span>(total_amount) <span class="s-kw">AS</span> total_spent
+    <span class="s-kw">FROM</span> orders <span class="s-kw">GROUP BY</span> customer_id
+)
+<span class="s-kw">SELECT</span> c.full_name, cs.total_spent
+<span class="s-kw">FROM</span> customers c
+<span class="s-kw">INNER JOIN</span> customer_spending cs <span class="s-kw">ON</span> c.id = cs.customer_id
+<span class="s-kw">WHERE</span> cs.total_spent &gt;= <span class="s-num">500</span>;</pre>
+            </div>
+
+            <div class="summary-box">
+                <strong>4. Summary (សង្ខេបមេរៀន)៖</strong> ប្រើ <strong>Subquery</strong> សម្រាប់លក្ខខណ្ឌខ្លីៗ ១ ជាន់
+                និងប្រើ <strong>CTE (<code class="ic">WITH</code>)</strong>
+                សម្រាប់របាយការណ៍វិភាគទិន្នន័យកម្រិតខ្ពស់ដែលមានច្រើនដំណាក់កាល។
+            </div>
+        </div>
+
+        <footer class="page-foot">
+            <span class="author-credit">រៀបចំដោយ៖ លាត ប្រុស</span>
+            <span class="page-num">ទំព័រ 12</span>
+        </footer>
+    </section>
+
+    <!-- ====================================================================
+         ទំព័រទី ១៣: ជំពូកទី ១១ - VIEWS & INDEXING (PERFORMANCE TUNING)
+         ==================================================================== -->
+    <section class="page" id="ch11">
+        <div class="page-body">
+            <header class="page-top-header">
+                <a href="#toc">Database (MySQL &amp; SQL Language)</a>
+                <span>11. Views &amp; Indexes (Performance)</span>
+            </header>
+
+            <h2 class="ch-title">11. ការបង្កើត Views និងការបង្កើនល្បឿនដោយ Indexes</h2>
+
+            <p class="step-heading">1. Definition (និយមន័យ):</p>
+            <ul class="step-list">
+                <li><strong>SQL View (តារាងនិម្មិត)៖</strong> គឺជាការរក្សាទុក Query ស្មុគស្មាញទុកជាឈ្មោះតារាងនិម្មិត
+                    ដើម្បីងាយស្រួលហៅប្រើឡើងវិញ និងលាក់ជួរឈរសម្ងាត់ (ដូចជា Password)។</li>
+                <li><strong>Database Index (B-Tree)៖</strong> គឺជារចនាសម្ព័ន្ធដែលប្រៀបដូចជា «មាតិកាសៀវភៅ» ជួយឱ្យ MySQL
+                    ស្វែងរកទិន្នន័យរាប់លានជួរបានយ៉ាងលឿន ដោយមិនចាំបាច់អានគ្រប់ជួរ។</li>
+            </ul>
+
+            <p class="step-heading">2. Syntax (ទម្រង់ទូទៅ):</p>
+            <div class="syntax-box">
+                <pre>CREATE OR REPLACE VIEW view_name AS SELECT ...;
+CREATE INDEX index_name ON table_name (column1, column2);
+EXPLAIN SELECT * FROM table_name WHERE condition;</pre>
+            </div>
+
+            <p class="step-heading">3. Example (ឧទាហរណ៍កូដ):</p>
+            <div class="code-box">
+                <pre><span class="s-com">-- ១. បង្កើត View និងហៅមកប្រើដូចតារាងធម្មតា</span>
+<span class="s-kw">CREATE OR REPLACE VIEW</span> v_order_summary <span class="s-kw">AS</span>
+<span class="s-kw">SELECT</span> o.id, c.full_name, o.total_amount
+<span class="s-kw">FROM</span> orders o <span class="s-kw">INNER JOIN</span> customers c <span class="s-kw">ON</span> o.customer_id = c.id;
+
+<span class="s-kw">SELECT</span> * <span class="s-kw">FROM</span> v_order_summary <span class="s-kw">WHERE</span> total_amount &gt; <span class="s-num">100</span>;
+
+<span class="s-com">-- ២. បង្កើត Index លើ email និងពិនិត្យល្បឿនដោយ EXPLAIN</span>
+<span class="s-kw">CREATE INDEX</span> idx_students_email <span class="s-kw">ON</span> students(email);
+<span class="s-kw">EXPLAIN SELECT</span> * <span class="s-kw">FROM</span> students <span class="s-kw">WHERE</span> email = <span class="s-str">'dara@gmail.com'</span>;</pre>
+            </div>
+
+            <div class="summary-box">
+                <strong>4. Summary (សង្ខេបមេរៀន)៖</strong> <strong>Views</strong> ជួយឱ្យកូដស្អាត និងមានសុវត្ថិភាព ចំណែក
+                <strong>Indexes</strong> និង <code class="ic">EXPLAIN</code> គឺជាអាវុធសំខាន់បំផុតក្នុងការធ្វើឱ្យ
+                Database ធំៗដំណើរការលឿន។
+            </div>
+        </div>
+
+        <footer class="page-foot">
+            <span class="author-credit">រៀបចំដោយ៖ លាត ប្រុស</span>
+            <span class="page-num">ទំព័រ 13</span>
+        </footer>
+    </section>
+
+    <!-- ====================================================================
+         ទំព័រទី ១៤: ជំពូកទី ១២ - STORED PROCEDURES, TRIGGERS & TRANSACTIONS
+         ==================================================================== -->
+    <section class="page" id="ch12">
+        <div class="page-body">
+            <header class="page-top-header">
+                <a href="#toc">Database (MySQL &amp; SQL Language)</a>
+                <span>12. Procedures, Triggers &amp; ACID</span>
+            </header>
+
+            <h2 class="ch-title">12. Stored Procedures, Triggers និង Transactions (ACID)</h2>
+
+            <p class="step-heading">1. មុខងារកម្រិតខ្ពស់ទាំង ៣ ក្នុង MySQL Server:</p>
+            <ul class="step-list">
+                <li><strong>Stored Procedure៖</strong> គឺជាបណ្តុំកូដ SQL ដែលរក្សាទុកក្នុង Server (ដូចជា Function)
+                    ហើយអាចហៅប្រើឡើងវិញដោយ <code class="ic">CALL</code>។</li>
+                <li><strong>Trigger៖</strong> គឺជាកូដ SQL ដែលដំណើរការដោយស្វ័យប្រវត្តិ <code class="ic">BEFORE</code> ឬ
+                    <code class="ic">AFTER</code> មានព្រឹត្តិការណ៍ <code class="ic">INSERT</code>, <code
+                        class="ic">UPDATE</code>, ឬ <code class="ic">DELETE</code>។</li>
+                <li><strong>Transactions (ACID)៖</strong> គឺជាការចងក្រង Query ច្រើនជាប្រតិបត្តិការតែមួយ —
+                    ជោគជ័យទាំងអស់ទើប <code class="ic">COMMIT</code> បើមាន Error ត្រូវ <code class="ic">ROLLBACK</code>។
+                </li>
+            </ul>
+
+            <p class="step-heading">2. Syntax (ទម្រង់ទូទៅ):</p>
+            <div class="syntax-box">
+                <pre>CREATE PROCEDURE proc_name(IN param datatype) BEGIN ... END;
+START TRANSACTION;  [SQL Queries...]  COMMIT; (ឬ ROLLBACK;)</pre>
+            </div>
+
+            <p class="step-heading">3. Example (ឧទាហរណ៍កូដ):</p>
+            <div class="code-box">
+                <pre><span class="s-com">-- ១. Stored Procedure ទាញយកការបញ្ជាទិញតាម Customer ID</span>
+<span class="s-kw">DELIMITER</span> //
+<span class="s-kw">CREATE PROCEDURE</span> GetCustomerOrders(<span class="s-kw">IN</span> p_cust_id <span class="s-kw">INT</span>)
+<span class="s-kw">BEGIN</span>
+    <span class="s-kw">SELECT</span> * <span class="s-kw">FROM</span> orders <span class="s-kw">WHERE</span> customer_id = p_cust_id;
+<span class="s-kw">END</span> //
+<span class="s-kw">DELIMITER</span> ;
+<span class="s-kw">CALL</span> GetCustomerOrders(<span class="s-num">1</span>);
+
+<span class="s-com">-- ២. Transaction: ផ្ទេរប្រាក់ $100 ពីគណនី A ទៅគណនី B</span>
+<span class="s-kw">START TRANSACTION</span>;
+    <span class="s-kw">UPDATE</span> accounts <span class="s-kw">SET</span> balance = balance - <span class="s-num">100</span> <span class="s-kw">WHERE</span> id = <span class="s-num">1</span>;
+    <span class="s-kw">UPDATE</span> accounts <span class="s-kw">SET</span> balance = balance + <span class="s-num">100</span> <span class="s-kw">WHERE</span> id = <span class="s-num">2</span>;
+<span class="s-kw">COMMIT</span>;</pre>
+            </div>
+
+            <div class="note-box">
+                <strong>គោលការណ៍ ACID៖</strong> <strong>A</strong>tomicity (ធ្វើទាំងអស់ ឬមិនធ្វើ),
+                <strong>C</strong>onsistency (ទិន្នន័យត្រឹមត្រូវ), <strong>I</strong>solation (មិនរំខានគ្នា),
+                <strong>D</strong>urability (មិនបាត់បង់ក្រោយ Commit)។
+            </div>
+        </div>
+
+        <footer class="page-foot">
+            <span class="author-credit">រៀបចំដោយ៖ លាត ប្រុស</span>
+            <span class="page-num">ទំព័រ 14</span>
+        </footer>
+    </section>
+
+    <!-- ====================================================================
+         ទំព័រទី ១៥: ទំព័រចុងបញ្ចប់ (BACK COVER & TELEGRAM CONTACT)
+         ==================================================================== -->
+    <section class="page back-cover">
+        <div class="cover-grid"></div>
+        <div class="glow-orb-1"></div>
+        <div class="glow-orb-2"></div>
+
+        <div class="closing-card">
+            <span class="closing-badge">THANK YOU FOR READING</span>
+            <h2 class="closing-title">អបអរសាទរ! អ្នកបានបញ្ចប់សៀវភៅនេះហើយ</h2>
+            <p class="closing-text">
+                សូមអរគុណដែលបានជ្រើសរើសសៀវភៅ <strong>«មេរៀន Database (MySQL &amp; SQL Language ពីមូលដ្ឋានដល់
+                    Advance)»</strong> ជាដៃគូសិក្សា។
+                ការយល់ដឹងស៊ីជម្រៅលើផ្នែកសរសេរកូដ និងការគ្រប់គ្រងទិន្នន័យ កើតចេញពីការអនុវត្តសរសេរកូដជាក់ស្តែងជាប្រចាំ។
+                សូមបន្តអនុវត្ត និងភ្ជាប់ MySQL ជាមួយគម្រោងពិតៗរបស់អ្នក!
+            </p>
+
+            <div class="contact-box">
+                <h4>មានចម្ងល់ ឬចង់ទាញយកឯកសារមេរៀនបន្ថែម?</h4>
+                <p>
+                    អ្នកអាចចូលរួម និងទំនាក់ទំនងផ្ទាល់តាមរយៈបណ្តាញ Telegram ដើម្បីទទួលបានមេរៀនថ្មីៗ វីដេអូបង្រៀន
+                    និងការប្រឹក្សាយោបល់លើការសិក្សាសរសេរកូដ។
+                </p>
+                <a class="tg-btn-lg" href="https://t.me/leatbros0979445608" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
+                    </svg>
+                    <span>ទំនាក់ទំនងមកកាន់ខ្ញុំ</span>
+                </a>
+            </div>
+
+            <div class="closing-author">
+                រៀបចំដោយ៖ <strong>លាត ប្រុស</strong> • ឆ្នាំ ២០២៦
+            </div>
+        </div>
+        
+    </section>
+
+</body>
+
+</html>
