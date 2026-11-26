@@ -337,7 +337,7 @@ SHOW DATABASES;</pre>
     </section>
 
     <!-- ====================================================================
-         ទំព័រទី ៥: ជំពូកទី ០៣ - DDL (CREATE, ALTER, DROP, TRUNCATE)
+         ទំព័រទី ៥: ជំពូកទី ០៣ - DDL (CREATE, ALTER, RENAME, TRUNCATE, DROP)
          ==================================================================== -->
     <section class="page" id="ch3">
         <div class="page-body">
@@ -349,35 +349,49 @@ SHOW DATABASES;</pre>
             <h2 class="ch-title">03. ការបង្កើត និងគ្រប់គ្រង Database &amp; Tables (DDL)</h2>
 
             <p class="step-heading">1. Definition (និយមន័យ) និងឃ្លាបញ្ជា DDL:</p>
-            <ul class="step-list">
-                <li><code class="ic">CREATE</code> <strong>៖</strong> បង្កើត Database ឬតារាងថ្មី (<code
-                        class="ic">IF NOT EXISTS</code>)។</li>
+            <p class="step-text">
+                <strong>DDL (Data Definition Language)</strong> គឺជាក្រុមឃ្លាបញ្ជា SQL សម្រាប់បង្កើត កែប្រែ
+                និងលុបរចនាសម្ព័ន្ធរបស់ Database និង Tables៖
+            </p>
+            <ul class="step-list" style="line-height: 1.45;">
+                <li><code class="ic">CREATE</code> <strong>៖</strong> បង្កើត Database ឬតារាងថ្មី។</li>
+                <li><code class="ic">IF NOT EXISTS</code> <strong>៖</strong> ពិនិត្យមុននឹងបង្កើត ដើម្បីការពារកុំឱ្យមាន
+                    Error ប្រសិនបើ Database ឬតារាងនោះមានរួចហើយ។</li>
                 <li><code class="ic">ALTER TABLE</code> <strong>៖</strong> កែប្រែរចនាសម្ព័ន្ធតារាង — បន្ថែម (<code
                         class="ic">ADD</code>), កែប្រភេទ (<code class="ic">MODIFY</code>), ឬលុប (<code
                         class="ic">DROP</code>) Column។</li>
-                <li><code class="ic">TRUNCATE</code> / <code class="ic">DROP</code> <strong>៖</strong>
-                    សម្អាតទិន្នន័យទាំងអស់ក្នុងតារាង / លុបតារាងចោលទាំងស្រុង។</li>
+                <li><code class="ic">RENAME TABLE</code> <strong>៖</strong> ប្តូរឈ្មោះតារាងដែលមានស្រាប់ទៅជាឈ្មោះថ្មី។
+                </li>
+                <li><code class="ic">TRUNCATE</code> <strong>៖</strong> សម្អាតទិន្នន័យទាំងអស់ក្នុងតារាង
+                    (រក្សាទុករចនាសម្ព័ន្ធតារាង និង Reset ID)។</li>
+                <li><code class="ic">DROP</code> <strong>៖</strong> លុប Database ឬតារាងចោលទាំងស្រុង
+                    (បាត់ទាំងរចនាសម្ព័ន្ធ និងទិន្នន័យ)។</li>
             </ul>
 
             <p class="step-heading">2. Syntax (ទម្រង់ទូទៅ):</p>
             <div class="syntax-box">
-                <pre>ALTER TABLE table_name ADD COLUMN column_name datatype;
-ALTER TABLE table_name MODIFY COLUMN column_name new_datatype;
-ALTER TABLE table_name DROP COLUMN column_name;
-TRUNCATE TABLE table_name;   |   DROP TABLE IF EXISTS table_name;</pre>
+                <pre>CREATE DATABASE [IF NOT EXISTS] database_name;
+CREATE TABLE [IF NOT EXISTS] table_name (col1 datatype, col2 datatype, ...);
+ALTER TABLE table_name ADD | MODIFY | DROP COLUMN column_name [datatype];
+RENAME TABLE old_table_name TO new_table_name;
+TRUNCATE TABLE table_name;
+DROP TABLE [IF EXISTS] table_name;</pre>
             </div>
 
             <p class="step-heading">3. Example (ឧទាហរណ៍កូដ):</p>
             <div class="code-box">
-                <pre><span class="s-com">-- ១. បន្ថែម, កែប្រភេទ និងលុប Column ក្នុងតារាង products</span>
+                <pre><span class="s-com">-- ១. បង្កើតតារាងថ្មី (CREATE)</span>
+<span class="s-kw">CREATE TABLE IF NOT EXISTS</span> products (id <span class="s-kw">INT PRIMARY KEY</span>, name <span class="s-kw">VARCHAR</span>(<span class="s-num">100</span>));
+
+<span class="s-com">-- ២. បន្ថែម, កែប្រភេទ និងលុប Column (ALTER TABLE)</span>
 <span class="s-kw">ALTER TABLE</span> products <span class="s-kw">ADD COLUMN</span> stock <span class="s-kw">INT DEFAULT</span> <span class="s-num">0</span>;
 <span class="s-kw">ALTER TABLE</span> products <span class="s-kw">MODIFY COLUMN</span> name <span class="s-kw">VARCHAR</span>(<span class="s-num">200</span>) <span class="s-kw">NOT NULL</span>;
 <span class="s-kw">ALTER TABLE</span> products <span class="s-kw">DROP COLUMN</span> stock;
 
-<span class="s-com">-- ២. ពិនិត្យរចនាសម្ព័ន្ធ, សម្អាតទិន្នន័យ និងលុបតារាង</span>
-<span class="s-kw">DESCRIBE</span> products;
-<span class="s-kw">TRUNCATE TABLE</span> products;
-<span class="s-kw">DROP TABLE IF EXISTS</span> products;</pre>
+<span class="s-com">-- ៣. ប្តូរឈ្មោះតារាង, សម្អាតទិន្នន័យ និងលុបតារាង (RENAME, TRUNCATE, DROP)</span>
+<span class="s-kw">RENAME TABLE</span> products <span class="s-kw">TO</span> items;
+<span class="s-kw">TRUNCATE TABLE</span> items;
+<span class="s-kw">DROP TABLE IF EXISTS</span> items;</pre>
             </div>
 
             <div class="note-box">
@@ -388,13 +402,13 @@ TRUNCATE TABLE table_name;   |   DROP TABLE IF EXISTS table_name;</pre>
 
             <div class="summary-box">
                 <strong>4. Summary (សង្ខេបមេរៀន)៖</strong> ប្រើ <code class="ic">CREATE</code> ដើម្បីបង្កើត, <code
-                    class="ic">ALTER</code> ដើម្បីកែប្រែជួរឈរ, <code class="ic">TRUNCATE</code> ដើម្បីសម្អាតទិន្នន័យ និង
-                <code class="ic">DROP</code> ដើម្បីលុបតារាងទាំងមូល។
+                    class="ic">ALTER</code> កែប្រែជួរឈរ, <code class="ic">RENAME</code> ប្តូរឈ្មោះតារាង, <code
+                    class="ic">TRUNCATE</code> សម្អាតទិន្នន័យ និង <code class="ic">DROP</code> លុបតារាង។
             </div>
         </div>
 
         <footer class="page-foot">
-            <span class="author-credit">រៀបចំដោយ៖ លាត ប្រុស</span>
+            <span class="author-credit">រៀបរៀង និងចងក្រងដោយ៖ លាត ប្រុស</span>
             <span class="page-num">ទំព័រ 5</span>
         </footer>
     </section>
@@ -971,7 +985,8 @@ EXPLAIN SELECT * FROM table_name WHERE condition;</pre>
                     ហើយអាចហៅប្រើឡើងវិញដោយ <code class="ic">CALL</code>។</li>
                 <li><strong>Trigger៖</strong> គឺជាកូដ SQL ដែលដំណើរការដោយស្វ័យប្រវត្តិ <code class="ic">BEFORE</code> ឬ
                     <code class="ic">AFTER</code> មានព្រឹត្តិការណ៍ <code class="ic">INSERT</code>, <code
-                        class="ic">UPDATE</code>, ឬ <code class="ic">DELETE</code>។</li>
+                        class="ic">UPDATE</code>, ឬ <code class="ic">DELETE</code>។
+                </li>
                 <li><strong>Transactions (ACID)៖</strong> គឺជាការចងក្រង Query ច្រើនជាប្រតិបត្តិការតែមួយ —
                     ជោគជ័យទាំងអស់ទើប <code class="ic">COMMIT</code> បើមាន Error ត្រូវ <code class="ic">ROLLBACK</code>។
                 </li>
@@ -1051,7 +1066,7 @@ START TRANSACTION;  [SQL Queries...]  COMMIT; (ឬ ROLLBACK;)</pre>
                 រៀបចំដោយ៖ <strong>លាត ប្រុស</strong> • ឆ្នាំ ២០២៦
             </div>
         </div>
-        
+
     </section>
 
 </body>
